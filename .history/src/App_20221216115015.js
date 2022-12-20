@@ -1,0 +1,26 @@
+import './App.css';
+import Header from './components/Header';
+import CreateArea from './components/CreateArea';
+import Note from './components/Note';
+import React, { useState } from 'react';
+
+function App() {
+  const [notes, setNotes] = useState([]);
+
+  function addNote(newNotes) {
+    setNotes(prevNotes => {
+      return [...prevNotes, newNotes];
+    });
+    console.log(notes)
+  }
+
+  return (
+    <div className="App">
+      <Header />
+      <CreateArea onAdd={addNote} />
+      <Note />
+    </div>
+  );
+}
+
+export default App;
